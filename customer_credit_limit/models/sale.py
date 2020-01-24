@@ -129,9 +129,9 @@ class sale_order(models.Model):
                 action = imd.xmlid_to_object('dev_customer_credit_limit.action_customer_limit_wizard')
                 form_view_id = imd.xmlid_to_res_id('dev_customer_credit_limit.view_customer_limit_wizard_form')
                 return {
-                        'name': action.name,
+                        #'name': action.name,
                         'help': action.help,
-                        #'type': action.type,
+                        'type': action.type,
                         'views': [(form_view_id, 'form')],
                         'view_id': form_view_id,
                         'target': action.target,
