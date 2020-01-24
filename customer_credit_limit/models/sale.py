@@ -131,7 +131,7 @@ class sale_order(models.Model):
                 return {
                         'name': action.name,
                         'help': action.help,
-                        'type': action.type,
+                        #'type': action.type,
                         'views': [(form_view_id, 'form')],
                         'view_id': form_view_id,
                         'target': action.target,
