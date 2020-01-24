@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="action_solution_area" model="ir.actions.act_window">
+            <field name="name">Solution Area</field>
+            <field name="res_model">solution.area</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="solution_area_form" model="ir.ui.view">
+            <field name="name">Solution Area</field>
+            <field name="model">solution.area</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="solution_area" name="Solution Area" parent="helpdesk.helpdesk_menu_config"
+                  action="action_solution_area" sequence="100"/>
+    </data>
+</odoo>

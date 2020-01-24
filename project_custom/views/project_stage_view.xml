@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="action_project_stage" model="ir.actions.act_window">
+            <field name="name">Project Stage</field>
+            <field name="res_model">project.stage</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="project_stage_form" model="ir.ui.view">
+            <field name="name">Project Stage</field>
+            <field name="model">project.stage</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="fold"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="project_stage_group_by" model="ir.ui.view">
+            <field name="name">project.search.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_project_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <filter string="Project Stage" name="product_stage_id" context="{'group_by':'project_stage_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project.open_view_project_all" model="ir.actions.act_window">
+            <field name="context">{"search_default_product_stage_id":1}</field>
+        </record>
+
+        <menuitem id="project_stage" name="Project Stage" parent="project.menu_project_config"
+                  action="action_project_stage" sequence="100"/>
+    </data>
+</odoo>

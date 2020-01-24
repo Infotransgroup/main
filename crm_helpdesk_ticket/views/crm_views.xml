@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="crm_oppertunity_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header" position="inside">
+                    <button name="convert_to_tickets" type="object" string="Create Ticket"
+                            attrs="{'invisible': [('type', '!=', 'opportunity')]}"/>
+                </xpath>
+                <button name="action_schedule_meeting" position="after">
+                    <button class="oe_stat_button" type="object" name="action_view_ticket_from_opportunity" icon="fa-life-ring" attrs="{'invisible': ['|',('type', '=', 'lead'), ('ticket_count', '=', 0)]}">
+                        <field name="ticket_count" widget="statinfo" string="Tickets"/>
+                    </button>
+                </button>
+            </field>
+        </record>
+    </data>
+</odoo>

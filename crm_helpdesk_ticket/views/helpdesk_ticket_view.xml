@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record id="helpdesk_ticket_opportunity" model="ir.ui.view">
+            <field name='name'>helpdesk.ticket.form.inherit.opportunity</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="action_view_opportunity_from_ticket"
+                            icon="fa-star" string="Opportunity" attrs="{'invisible': [('opportunity_count', '=', 0)]}">
+                        <field name="opportunity_count" widget="statinfo" invisible="1"/>
+                    </button>
+                </div>
+                <field name="ticket_type_id" position="after">
+                    <field name="solutionarea_id" widget="selection"/>
+                </field>
+                <xpath expr="//header/button[@name='action_generate_fsm_task']" position="replace">
+                    <button class="btn btn-secondary"
+                            name="%(industry_fsm.project_task_action_fsm_planning_groupby_user)d" type="action"
+                            string="Plan Intervention" groups="industry_fsm.group_fsm_user"
+                            attrs="{'invisible': [('use_fsm', '=', False)]}"
+                            context="{'default_helpdesk_ticket_id': id,
+                                        'default_partner_id': partner_id,
+                                        'default_name': name}"/>
+                    <button class="btn btn-secondary" name="action_create_task" string="Create Sale" type="object" attrs="{'invisible': ['|','|',('task_id', '!=', False), ('project_id', '=', False), ('is_task','=',False)]}"/>
+                </xpath>
+                <field name="name" position="after">
+                    <h2>
+                        <field name="reference_code" class="oe_inline" readonly="True"/>
+                    </h2>
+                </field>
+                <field name="email_cc" position="after">
+                    <field name="project_id" domain="[('partner_id', 'in', )]"/>
+                    <field name="task_id" attrs="{'readonly': [('is_task', '=', True)]}"/>
+                    <field name="is_task" invisible="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

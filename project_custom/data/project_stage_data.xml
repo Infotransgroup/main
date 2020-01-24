@@ -1,0 +1,15 @@
+<odoo>
+    <data noupdate="1">
+        <record id="new" model="project.stage">
+            <field name="name">New</field>
+        </record>
+
+        <record id="ongoing" model="project.stage">
+            <field name="name">In Progress</field>
+        </record>
+
+        <record id="completed" model="project.stage">
+            <field name="name">Closed</field>
+        </record>
+    </data>
+</odoo>

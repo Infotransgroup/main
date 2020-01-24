@@ -1,0 +1,53 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="it_sas" model="solution.area">
+            <field name="name">IT SAS</field>
+        </record>
+
+        <record id="it_data" model="solution.area">
+            <field name="name">IT DATA</field>
+        </record>
+
+        <record id="it_x_ray" model="solution.area">
+            <field name="name">IT X-Ray</field>
+        </record>
+
+        <record id="it_electra" model="solution.area">
+            <field name="name">IT Electra</field>
+        </record>
+
+        <record id="it_automation" model="solution.area">
+            <field name="name">IT Automation</field>
+        </record>
+
+        <record id="itc_communication_colaboration" model="solution.area">
+            <field name="name">ITC Communication and Collaboration</field>
+        </record>
+
+        <record id="itc_datacenter" model="solution.area">
+            <field name="name">ITC Datacenter</field>
+        </record>
+
+        <record id="itc_point_of_sale" model="solution.area">
+            <field name="name">ITC Point of Sale</field>
+        </record>
+
+        <record id="itc_security" model="solution.area">
+            <field name="name">ITC Security</field>
+        </record>
+
+        <record id="itc_personal_systems" model="solution.area">
+            <field name="name">ITC Personal Systems</field>
+        </record>
+
+        <record id="itc_imaging" model="solution.area">
+            <field name="name">ITC Imaging</field>
+        </record>
+
+        <record id="itc_networking" model="solution.area">
+            <field name="name">ITC Networking</field>
+        </record>
+
+    </data>
+</odoo>
