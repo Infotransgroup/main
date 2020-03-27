@@ -16,6 +16,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: stock_infotrans
-#: model:res.groups,name:stock_infotrans.group_private
+#: model:res.groups,name:stock_infotrans.group_stock_private
 msgid "Private"
 msgstr "Privado"
