@@ -11,9 +11,9 @@
             </field>
         </record>
 
-        <record id="group_private" model="res.groups">
+        <record id="group_stock_private" model="res.groups">
             <field name="name">Private</field>
-            <field name="category_id" ref="base.module_category_user_type"/>
+            <field name="category_id" ref="base.module_category_operations_inventory"/>
         </record>
 
         <record id="stock_backorder_confirmation" model="ir.ui.view">
