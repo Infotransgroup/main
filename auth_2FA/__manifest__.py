@@ -13,7 +13,7 @@
         'views/res_config_settings_views.xml',
     ],
     'external_dependencies': {
-        'python': ['pyotp','pyqrcode'],
+        'python': ['pyotp','pyqrcode','pypng'],
     },
     'installable': True,
     'auto_install': False,
