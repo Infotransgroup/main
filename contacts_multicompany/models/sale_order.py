@@ -15,7 +15,7 @@ class SaleCompany(models.Model):
                 raise UserError(_('You are creating a quotation in a company different from  where you are from. \n Do you want to Continue ?'))
         request.session.pop('key', None)
         if result.opportunity_id:
-            attachments = self.env['ir.attachment'].search([('res_id','=',result.opportunity_id.id)])
+            attachments = self.env['ir.attachment'].search([('res_id','=',result.opportunity_id.id),('res_model','=',result.opportunity_id._inherit)])
             if attachments:
                 for attachment in attachments:
                     self.env['ir.attachment'].create({
@@ -40,7 +40,7 @@ class SaleCompany(models.Model):
     def action_confirm(self):
         super(SaleCompany, self).action_confirm()
         if self.opportunity_id:
-            attachments = self.env['ir.attachment'].search([('res_id','=',self.opportunity_id.id)])
+            attachments = self.env['ir.attachment'].search([('res_id','=',self.opportunity_id.id),('res_model','=',self.opportunity_id._inherit)])
             if attachments:
                 for attachment in attachments:
                     for line in self.order_line:
