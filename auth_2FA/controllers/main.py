@@ -73,7 +73,7 @@ class WebHome(Home):
                     if not res:
                         raise odoo.exceptions.AccessDenied(_('Wrong login account'))
                     [user_id, company_id, hashed, otp_first_use] = res
-                    if company_id and request.env['res.company'].browse(company_id).is_open_2fa and user.require_2FA:
+                    if company_id and request.env['res.company'].sudo().browse(company_id).is_open_2fa and user.require_2FA:
                         # Verify password correctness
                         valid, replacement = default_crypt_context.verify_and_update(request.params['password'], hashed)
                         if replacement is not None:
