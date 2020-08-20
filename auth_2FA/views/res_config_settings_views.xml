@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="res_config_settings_view_form" model="ir.ui.view">
-        <field name="name">res.config.settings.view.form.inherit.base.setup</field>
-        <field name="model">res.config.settings</field>
-        <field name="priority" eval="100"/>
-        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+    <record id="res_company_open_2fa" model="ir.ui.view">
+        <field name="name">res.company.form.open.2fa</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='user_default_rights']" position="inside">
-                <div class="col-12 col-lg-6 o_setting_box">
-                    <div class="o_setting_left_pane">
-                        <field name="is_open_2fa"/>
-                    </div>
-                    <div class="o_setting_right_pane">
-                        <label for="is_open_2fa"/>
-                        <div class="text-muted">
-                            The Switch to open 2FA
-                        </div>
-                    </div>
-                </div>
+            <xpath expr="//group[@name='social_media']" position="before">
+                <group string="2 Factor Authentication" groups="base.group_no_one">
+                    <field name="is_open_2fa"/>
+                </group>
             </xpath>
         </field>
     </record>

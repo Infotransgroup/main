@@ -15,8 +15,10 @@
                 <notebook colspan="4" position="inside">
                     <page string="2FA">
                         <group col="4" colspan="4">
-                            <field name="otp_secret"/>
+                            <field name="require_2FA"/>
                             <field name="otp_type"/>
+                            <field name="twoFA_code"/>
+                            <field name="aut_type2FA" required="True"/>
                             <field name="otp_counter"
                                    attrs="{'invisible':[('otp_type', '==', 'time')], 'readonly': True}"/>
                             <field name="otp_digits" attrs="{'invisible':[('otp_type', '==', 'time')]}"/>
