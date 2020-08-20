@@ -72,10 +72,10 @@ class ResUsers(models.Model):
         for record in self:
             if record.otp_type == 'time':
                 record.otp_uri = pyotp.utils.build_uri(secret=record.otp_secret, name=record.login,
-                                                     issuer=record.company_id.name, period=record.otp_period)
+                                                     issuer_name=record.company_id.name, period=record.otp_period)
             else:
                 record.otp_uri = pyotp.utils.build_uri(secret=record.otp_secret, name=record.login,
-                                                     initial_count=record.otp_counter, issuer=record.company_id.name,
+                                                     initial_count=record.otp_counter, issuer_name=record.company_id.name,
                                                      digits=record.otp_digits)
 
     # Verify otp verification code is correct
