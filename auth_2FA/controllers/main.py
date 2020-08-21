@@ -130,7 +130,7 @@ class WebHome(Home):
         response.headers['X-Frame-Options'] = 'DENY'
         return response
 
-    @http.route('/web/login/2fa_auth', type='http', auth="none",website=True)
+    @http.route('/web/login/2fa_auth', type='http', auth="public",website=True)
     def web_login_2fa_auth(self, redirect=None, **kw):
         ensure_db()
         request.params['login_success'] = False
