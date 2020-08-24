@@ -11,3 +11,4 @@ def calculate_otp_code(cr, registry):
     for user in users:
         code = pyotp.random_base32()
         user.otp_secret = code
+        user.twoFA_code = pyotp.random_base32()

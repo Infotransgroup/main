@@ -42,6 +42,7 @@ class WebHome(Home):
             user = request.env['res.users'].sudo().search([('login','ilike',values['login'])])
             if user:        
                 user = request.env['res.users'].sudo().search([('login','ilike',values['login'])])[0]
+                user.require_2FA_flag = False
             else:
                 values = request.params.copy()
                 values['error'] = _("Wrong login")
