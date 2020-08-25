@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="sale_qweb.qweb_template_form">
+        <field name="name">sale_qweb.qweb_template_form</field>
+        <field name="model">sale.order.template</field>
+        <field name="inherit_id" ref="sale_management.sale_order_template_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="after">
+                <group>
+                    <field name="note_template" />
+                    <field name="presentation_template" />
+                    <field name="control_template" />
+                    <field name="company_template" />
+                    <field name="summary_template" />
+                    <field name="description_template" />
+                    <field name="solution_template" />
+                    <field name="wbs_template" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

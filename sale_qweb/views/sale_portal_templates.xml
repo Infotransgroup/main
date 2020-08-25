@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_order_portal_template_qweb_template" name="Qweb Template" inherit_id="sale.sale_order_portal_content">
+        <xpath expr="//section[@id='signature']" position="after">
+            <section id="qweb_fields" name="Qweb Fields" class="mt32">
+                <group>
+                    <div t-if="sale_order.qweb_note">
+                        <div  class="oe_structure">
+                            <h3>Note: </h3>
+                        </div>
+                        <span t-field="sale_order.qweb_note"/>
+                    </div>
+                    <div t-if="sale_order.qweb_presentation and sale_order.qweb_presentation!='&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                        <div  class="oe_structure">
+                            <h3>Presentation:</h3>
+                        </div>
+                        <span t-field="sale_order.qweb_presentation"/>
+                    </div>
+                    <div t-if="sale_order.qweb_control and sale_order.qweb_control!='&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                        <div  class="oe_structure">
+                            <h3>Revision Control:</h3>
+                        </div>
+                        <span t-field="sale_order.qweb_control"/>
+                    </div>
+                    <div t-if="sale_order.qweb_company and sale_order.qweb_company!='&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                        <div  class="oe_structure">
+                            <h3>Company:</h3>
+                        </div>
+                        <span t-field="sale_order.qweb_company"/>
+                    </div>
+                    <div t-if="sale_order.qweb_summary and sale_order.qweb_summary!='&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                        <div  class="oe_structure">
+                            <h3>Summary:</h3>
+                        </div>
+                        <span t-field="sale_order.qweb_summary"/>
+                    </div>
+                    <div t-if="sale_order.qweb_description and sale_order.qweb_description!='&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                        <div  class="oe_structure">
+                            <h3>Description:</h3>
+                        </div>
+                        <span t-field="sale_order.qweb_description"/>
+                    </div>
+                    <div t-if="sale_order.qweb_solution and sale_order.qweb_solution!='&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                        <div  class="oe_structure">
+                            <h3>Solution:</h3>
+                        </div>
+                        <span t-field="sale_order.qweb_solution"/>
+                    </div>
+                    <div t-if="sale_order.qweb_wbs and sale_order.qweb_wbs!='&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+                        <div  class="oe_structure">
+                            <h3>WBS:</h3>
+                        </div>
+                        <span t-field="sale_order.qweb_wbs"/>
+                    </div>
+                </group>
+            </section>
+        </xpath>
+    </template>
+</odoo>

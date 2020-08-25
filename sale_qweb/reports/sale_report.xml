@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="sale_order_report_website_qweb"
+            model="sale.order"
+            string="Sale Order Report"
+            report_type="qweb-pdf"
+            name="sale_qweb.sale_order_website_report"
+            file="sale_qweb.sale_order_website_report"/>
+    </data>
+</odoo>

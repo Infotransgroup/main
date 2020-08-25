@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sale_qweb.sale_order_template_format_view">
+            <field name="name">sale_order.qweb_reporte_venta</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]" position="after">
+                    <notebook name="fields_qweb">
+                        <page name="qweb_note" string="Nota:">
+                            <group>
+                                <group>
+                                    <field name="qweb_note"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="qweb_presentation" string="Presentacion:">
+                            <group>
+                                <field name="qweb_presentation"/>
+                            </group>
+                        </page>
+                        <page name="qweb_control" string="1. Control de Revisiones">
+                            <group>
+                                <field name="qweb_control" />
+                            </group>
+                        </page>
+                        <page name="qweb_company" string="2. Nuestra Empresa">
+                            <group>
+                                <field name="qweb_company" />
+                            </group>
+                        </page>
+                        <page name="qweb_solution" string="3. Resumen Solicitud">
+                            <group>
+                                <field name="qweb_summary" />
+                            </group>
+                        </page>
+                        <page name="qweb_description" string="4. Descripcion de servicio propuesto">
+                            <group>
+                                <field name="qweb_description" />
+                            </group>
+                        </page>
+                        <page name="qweb_solution" string="5. Solucion Propuesta">
+                            <group>
+                                <field name="qweb_solution" />
+                            </group>
+                        </page>
+                        <page name="qweb_wbs" string="6. WBS/Actividades a realizar">
+                            <group>
+                                <field name="qweb_wbs"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
