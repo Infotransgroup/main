@@ -7,45 +7,56 @@
             <field name="arch" type="xml">
                 <xpath expr="//form[1]/sheet[1]/notebook[1]" position="after">
                     <notebook name="fields_qweb">
-                        <page name="qweb_note" string="Nota:">
+                        <page name="initial_image" string="Principal Image:">
                             <group>
-                                <group>
-                                    <field name="qweb_note"/>
-                                </group>
+                                <field name="initial_image_template"/>
                             </group>
                         </page>
-                        <page name="qweb_presentation" string="Presentacion:">
+                        <page name="qweb_note" string="Note:">
                             <group>
+                                <field name="qweb_note_title"/>
+                                <field name="qweb_note"/>
+                            </group>
+                        </page>
+                        <page name="qweb_presentation" string="Presentation:">
+                            <group>
+                                <field name="qweb_presentation_title"/>
                                 <field name="qweb_presentation"/>
                             </group>
                         </page>
-                        <page name="qweb_control" string="1. Control de Revisiones">
+                        <page name="qweb_control" string="1. Revision Control:">
                             <group>
+                                <field name="qweb_control_title" />
                                 <field name="qweb_control" />
                             </group>
                         </page>
-                        <page name="qweb_company" string="2. Nuestra Empresa">
+                        <page name="qweb_company" string="2. Our Company">
                             <group>
+                                <field name="qweb_company_title" />
                                 <field name="qweb_company" />
                             </group>
                         </page>
-                        <page name="qweb_solution" string="3. Resumen Solicitud">
+                        <page name="qweb_solution" string="3. Request Summary">
                             <group>
+                                <field name="qweb_summary_title" />
                                 <field name="qweb_summary" />
                             </group>
                         </page>
-                        <page name="qweb_description" string="4. Descripcion de servicio propuesto">
+                        <page name="qweb_description" string="4. Commercial Proposal">
                             <group>
+                                <field name="qweb_description_title" />
                                 <field name="qweb_description" />
                             </group>
                         </page>
-                        <page name="qweb_solution" string="5. Solucion Propuesta">
+                        <page name="qweb_solution" string="5. Proposed Solution">
                             <group>
+                                <field name="qweb_solution_title" />
                                 <field name="qweb_solution" />
                             </group>
                         </page>
-                        <page name="qweb_wbs" string="6. WBS/Actividades a realizar">
+                        <page name="qweb_wbs" string="6. WBS/Tasks to do">
                             <group>
+                                <field name="qweb_wbs_title"/>
                                 <field name="qweb_wbs"/>
                             </group>
                         </page>

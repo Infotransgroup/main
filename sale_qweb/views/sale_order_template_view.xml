@@ -8,13 +8,22 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="after">
                 <group>
+                    <field name="initial_image_template" />
+                    <field name="qweb_note_title" />
                     <field name="note_template" />
+                    <field name="qweb_presentation_title" />
                     <field name="presentation_template" />
+                    <field name="qweb_control_title" />
                     <field name="control_template" />
+                    <field name="qweb_company_title" />
                     <field name="company_template" />
+                    <field name="qweb_summary_title" />
                     <field name="summary_template" />
+                    <field name="qweb_description_title" />
                     <field name="description_template" />
+                    <field name="qweb_solution_title" />
                     <field name="solution_template" />
+                    <field name="qweb_wbs_title" />
                     <field name="wbs_template" />
                 </group>
             </xpath>
