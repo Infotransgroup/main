@@ -1,8 +1,8 @@
 {
-    'name': 'Purchase_Infotrans',
+    'name': 'Purchase_Infontras',
     'version': '13',
     'author': "Todoo SAS",
-    'website': "www.todoo.co",
+    'website': "www.Todoo.co",
     'category': 'purchase',
     'depends': [
         'purchase',

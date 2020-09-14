@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
   <template id="purchase_order_inherit" inherit_id="purchase.report_purchaseorder_document">
-	<xpath expr="//span[@t-field='line.price_unit']" position="replace">
+       <xpath expr="//span[(@t-field='line.price_unit')]" position="replace">
+           <!-- <span t-field="line.price_unit"/> -->
            <span t-esc="'%.2f'%(line.price_unit)"/>
-       </xpath>
-  </template>
+       </xpath>      
+  </template>    
 </odoo>
