@@ -10,7 +10,7 @@
     """,
 
     'author': "Todoo SAS",
-    'contributors': "Oscar B ob@todoo.co",
+    'contributors': "Oscar B ob@todoo.co, Carlos Guio fg@todoo.co",
     'website': "http://www.todoo.co",
 
     'category': 'Sales',
