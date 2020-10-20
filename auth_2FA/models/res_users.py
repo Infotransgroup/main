@@ -36,7 +36,7 @@ class ResUsers(models.Model):
     twoFA_code = fields.Char(string="Secret CODE", size=16, help='16 character base32 secret temporal code',
                              default=lambda self: pyotp.random_base32())
     twoFA_date = fields.Datetime('Datetime code', compute='_compute_twoFA_date')
-    aut_type2FA = fields.Selection(selection=[('QR Code', _('QR Code')), ('Email', _('Email'))], default='Email',
+    aut_type2FA = fields.Selection(selection=[('QR Code', _('QR Code')), ('Email', _('Email'))], default='QR Code',
                                 string="Type of authentication",
                                 help="Type of 2FA authentication")
     require_2FA = fields.Boolean(string='Open 2FA', default=False)
