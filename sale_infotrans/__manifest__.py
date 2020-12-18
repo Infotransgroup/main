@@ -10,20 +10,20 @@
     """,
 
     'author': "Todoo SAS",
-    'contributors': "Oscar B ob@todoo.co, Carlos Guio fg@todoo.co",
+    'contributors': "Oscar B ob@todoo.co",
     'website': "http://www.todoo.co",
 
     'category': 'Sales',
     'version': '13.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['sale', 'account'],
+    'depends': ['dev_customer_credit_limit'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
-        'views/templates.xml',
+        'views/sale_order.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

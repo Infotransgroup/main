@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+
+        <record id="view_sale_order_billed_inherit_form" model="ir.ui.view">
+            <field name="name">sale.order.billed.inherit.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="dev_customer_credit_limit.view_sale_order_confirm_inherit_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_sale_ok']" position="before">
+                    <button name="button_downpayment" type="object" string="Downpayment" class="oe_highlight" states="sent"/>
+                </xpath>
+                <xpath expr="//button[@name='action_sale_ok']" position="attributes">
+                    <attribute name="states">sent,billed</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_sale_ok']" position="after">
+                    <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"
+                        type="action" class="btn-primary"
+                        attrs="{'invisible': [('state','!=','billed')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
