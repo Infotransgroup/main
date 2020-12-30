@@ -3352,7 +3352,10 @@ msgstr ""
 msgid "LURUACO"
 msgstr ""
 
-Factura / Fecha de factura
+#. module: l10n_co_dian_data
+#: model:ir.model.fields,help:l10n_co_dian_data.field_account_move__debit_note_ids
+msgid "Las notas débito creadas a esta factura"
+msgstr ""
 
 #. module: l10n_co_dian_data
 #: model:ir.model.fields,field_description:l10n_co_dian_data.field_account_fiscal_position_tax_level_code____last_update
