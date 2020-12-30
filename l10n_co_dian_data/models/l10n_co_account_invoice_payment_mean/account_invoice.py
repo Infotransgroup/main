@@ -9,7 +9,7 @@ from odoo import api, fields, models
 class AccountInvoice(models.Model):
 	_inherit = "account.move"
 
-	@api.model
+	# @api.model
 	def _get_zzz(self):
 		zz_id = self.env['account.payment.mean.code'].search([('code','=','ZZZ')])
 		if zz_id:
