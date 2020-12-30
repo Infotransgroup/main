@@ -1141,7 +1141,7 @@ class AccountInvoiceDianDocument(models.Model):
                 result = root.find('{s}Body/{x}IniciarSesionResponse/{x}IniciarSesionResult'.format(s = xmlns['s'], x = xmlns['x']))
                 sesion_id = result.find('%sSesionId' % xmlns['x']).text
                 date_due = result.find('%sFechaVencimiento' % xmlns['x']).text
-                self.company_id.write({'sesion_id': sesion_id, 'date_due_sesion': date_due})
+                self.sudo().company_id.write({'sesion_id': sesion_id, 'date_due_sesion': date_due})
             elif response.status_code in (500, 503, 507):
                 root = etree.fromstring(response.text.encode('utf-8'))
                 code = root.find('{s}Body/{s}Fault/{s}Code/{s}Value'.format(s = xmlns['s'], x = xmlns['x'])).text

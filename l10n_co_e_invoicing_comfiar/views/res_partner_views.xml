@@ -9,10 +9,11 @@
             <field name="inherit_id" ref="account.view_partner_property_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='banks']" position="before">
-                    <group string="e-Invoicing" name="einv">
+                    <group string="e-Invoicing" name="einv" attrs="{'invisible': [('company_country_code','!=','CO')]}">
+                        <field name="company_country_code" invisible="1"/>
                         <field name="check_mail_einv"/>
                     </group>
-                    <group></group>
+                    <group attrs="{'invisible': [('company_country_code','!=','CO')]}"></group>
                 </xpath>
             </field>
         </record>

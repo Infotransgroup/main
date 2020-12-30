@@ -10,12 +10,13 @@
                             attrs="{'required': [('type', '=', 'out_refund')],
                                     'invisible': [('refund_type', '=', False)]}"
                             readonly="1"/>
+                    <field name="company_country_code" invisible="1"/>
                 </xpath>
                 <xpath expr="//field[@name='journal_id']" position="before">
                     <field name="discrepancy_response_code_id"
                             domain="[('type', '=', refund_type)]"
-                            attrs="{'required': [('refund_type', '!=', False)],
-                                    'invisible': [('refund_type', '=', False)]}"
+                            attrs="{'required': [('refund_type', '!=', False),('company_country_code','=','CO')],
+                                    'invisible': ['|',('refund_type', '=', False),('company_country_code','!=','CO')]}"
                             options="{'no_create_edit': True}"/>
                 </xpath>
                 <xpath expr="//button[@id='account_invoice_payment_btn']" position="after">

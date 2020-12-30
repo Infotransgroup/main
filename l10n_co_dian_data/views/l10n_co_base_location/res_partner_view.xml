@@ -12,9 +12,10 @@
                        options="{'create_name_field': 'city', 'no_open': True, 'no_create': True}"
                        placeholder="Location completion"
                        class="oe_edit_only"
-                       attrs="{'readonly': [('type', '=', 'sadasdas'),('parent_id', '!=', False)]}"/>
+                       attrs="{'readonly': [('type', '=', 'sadasdas'),('parent_id', '!=', False)], 'invisible': [('company_country_code','!=','CO')]}"/>
                 <field name='city_id'
                        attrs="{'invisible': [('country_enforce_cities', '=', False)]}"/>
+                <field name="company_country_code" invisible="1"/>
             </field>
             <field name="city" position="attributes">
                 <attribute name="invisible">[('country_enforce_cities', '=', True)]</attribute>
@@ -26,9 +27,10 @@
                        options="{'create_name_field': 'city', 'no_open': True, 'no_create': True}"
                        placeholder="City completion"
                        class="oe_edit_only"
-                       attrs="{'required': [('country_code', '=', 'CO')]}"/>
+                       attrs="{'required': [('country_code', '=', 'CO')], 'invisible': [('company_country_code','!=','CO')]}"/>
                 <field name='city_id'
                        attrs="{'invisible': [('country_enforce_cities', '=', False)]}"/>
+                <field name="company_country_code" invisible="1"/>
             </xpath>
             <xpath expr="//field[@name='child_ids']/form//field[@name='city']" position="attributes">
                 <attribute name="invisible">[('country_enforce_cities', '=', True)]</attribute>
