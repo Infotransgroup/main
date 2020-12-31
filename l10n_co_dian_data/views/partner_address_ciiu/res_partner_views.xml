@@ -25,7 +25,7 @@
             </xpath>
 
             <xpath expr="//field[@name='vat']" position="before">
-                <field name="ciiu" placeholder="CIIU" widget="many2many_tags" attrs="{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','!=','CO')]}"/>
+                <field name="ciiu" placeholder="CIIU" widget="many2many_tags" attrs="{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','=','CO')]}"/>
             </xpath>
         </field>
     </record>
