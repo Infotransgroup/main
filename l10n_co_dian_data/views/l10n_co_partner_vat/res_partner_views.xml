@@ -13,13 +13,10 @@
                 <field name="l10n_co_document_type" position="attributes">
                     <attribute name="attrs">{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','=','CO')]}</attribute>
                 </field>
-                <field name="identification_document" position="attributes">
-                    <attribute name="attrs">{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','=','CO')]}</attribute>
-                </field>
                 <field name="website" position="before">
                     <field name="property_account_position_id" options="{'no_create': True, 'no_open': True}" attrs="{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','=','CO')]}"/>
                     <field name="document_type_id" widget="selection" attrs="{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','=','CO')]}"/>
-                    <field name="identification_document" attrs="{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','!=','CO')]}"/>
+                    <field name="identification_document" attrs="{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','=','CO')]}"/>
                     <field name="document_type_code" invisible="1"/>
                     <field name="check_digit" attrs="{'invisible': [('document_type_code', '!=', '31')], 'required': [('document_type_code', '=', '31')]}"/>
                     <field name="vat" invisible="1"/>
