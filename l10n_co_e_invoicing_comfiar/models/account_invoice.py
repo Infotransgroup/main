@@ -178,7 +178,9 @@ class AccountInvoice(models.Model):
 			message loaded by default
 		"""
 		self.ensure_one()
-		template = self.env.ref('l10n_co_e_invoicing_comfiar.email_template_for_einvoice')
+		template = False
+		if self.company_country_code == 'CO':
+			template = self.env.ref('l10n_co_e_invoicing_comfiar.email_template_for_einvoice')
 		# template = self.env.ref('account.email_template_edi_invoice', raise_if_not_found=False)
 		dian_document = self.dian_document_lines.filtered(lambda x: x.state == 'done')
 		if len(dian_document) > 1:
@@ -211,14 +213,15 @@ class AccountInvoice(models.Model):
 		ctx = dict(
 			default_model='account.move',
 			default_res_id=self.id,
-			default_use_template=bool(template),
-			default_template_id=template and template.id or False,
 			default_composition_mode='comment',
 			mark_invoice_as_sent=True,
 			custom_layout="mail.mail_notification_paynow",
 			model_description=self.with_context(lang=lang).type_name,
 			force_email=True
 		)
+		if template:
+			ctx['default_use_template'] = bool(template)
+			ctx['default_template_id'] = template and template.id or False,
 
 		return {
 			'name': _('Send Invoice'),
