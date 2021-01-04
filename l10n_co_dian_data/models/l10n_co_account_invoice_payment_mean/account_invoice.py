@@ -9,9 +9,11 @@ from odoo import api, fields, models
 class AccountInvoice(models.Model):
 	_inherit = "account.move"
 
-	@api.model
+	# @api.model
 	def _get_zzz(self):
-		zz_id = self.env['account.payment.mean.code'].search([('code','=','ZZZ')])
+		zz_id = False
+		if self.sudo().env['ir.model'].search([('model','=','account.payment.mean.code')]):
+			zz_id = self.env['account.payment.mean.code'].search([('code','=','ZZZ')])
 		if zz_id:
 			return zz_id.id
 		return False
