@@ -182,27 +182,28 @@ class AccountInvoice(models.Model):
 		if self.company_country_code == 'CO':
 			template = self.env.ref('l10n_co_e_invoicing_comfiar.email_template_for_einvoice')
 		# template = self.env.ref('account.email_template_edi_invoice', raise_if_not_found=False)
-		dian_document = self.dian_document_lines.filtered(lambda x: x.state == 'done')
-		if len(dian_document) > 1:
-			raise ValidationError('Hay mas de un documento DIAN en estado "Hecho", validar que solo exista uno')
-		elif len(dian_document) == 1:
-			
-			xml_attachment_file = self.env['ir.attachment'].create({
-				'name': dian_document.xml_filename,
-				'type': 'binary',
-				'datas': dian_document.xml_file}) #b64encode(xml_without_signature.encode()).decode("utf-8", "ignore")})
+		if template:
+			dian_document = self.dian_document_lines.filtered(lambda x: x.state == 'done')
+			if len(dian_document) > 1:
+				raise ValidationError('Hay mas de un documento DIAN en estado "Hecho", validar que solo exista uno')
+			elif len(dian_document) == 1:
+				
+				xml_attachment_file = self.env['ir.attachment'].create({
+					'name': dian_document.xml_filename,
+					'type': 'binary',
+					'datas': dian_document.xml_file}) #b64encode(xml_without_signature.encode()).decode("utf-8", "ignore")})
 
-			pdf_attachment_file = self.env['ir.attachment'].create({
-				'name': dian_document.pdf_filename,
-				'type': 'binary',
-				'datas': dian_document.pdf_file})
-			# pdf_attachment = self.env['ir.attachment'].create({
-			# 	'name': self.name + '.pdf',
-			# 	'type': 'binary',
-			# 	'datas': self._get_pdf_file()})
+				pdf_attachment_file = self.env['ir.attachment'].create({
+					'name': dian_document.pdf_filename,
+					'type': 'binary',
+					'datas': dian_document.pdf_file})
+				# pdf_attachment = self.env['ir.attachment'].create({
+				# 	'name': self.name + '.pdf',
+				# 	'type': 'binary',
+				# 	'datas': self._get_pdf_file()})
 
-			template.attachment_ids = [(6, 0, [(pdf_attachment_file.id),
-											   (xml_attachment_file.id)])]
+				template.attachment_ids = [(6, 0, [(pdf_attachment_file.id),
+												(xml_attachment_file.id)])]
 
 		lang = get_lang(self.env)
 		if template and template.lang:
