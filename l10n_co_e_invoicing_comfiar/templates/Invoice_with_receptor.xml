@@ -96,7 +96,7 @@
 			<!--TODO: Creo que esto para colocar el numero de la orden, en nuestro caso, seria la cotizacion-->
 				<cac:OrderReference>
 					<cbc:ID>{{DocOrigin}}</cbc:ID>
-					<!-- <cbc:IssueDate>{{invoiceReferences}}</cbc:IssueDate> -->
+					<!-- <cbc:IssueDate>{{IssueDate}}</cbc:IssueDate> -->
 				</cac:OrderReference>
 			<!--TODO: Se debe diligenciar únicamente cuando la FE se origina a partir de la corrección o
 			ajuste que se da mediante un Nota Crédito>
