@@ -64,7 +64,9 @@
                             string="Reprocess"
                             type="object"
                             class="btn-primary"
-                            attrs="{'invisible': ['|', ('state','not in',('draft','sent')), ('output_comfiar_status_code','in',('ACEPTADO','TransaccionSinTerminar'))]}"/>
+                            attrs="{'invisible': ['|', 
+                                                 ('state','not in',('draft','sent')), 
+                                                 ('output_comfiar_status_code','in',('ACEPTADO','TransaccionSinTerminar'))]}"/>
                         <button name="DescargarPdf2"
                             string="Pdf Download"
                             type="object"
