@@ -1386,11 +1386,11 @@ class AccountInvoiceDianDocument(models.Model):
                             
                         if self.output_dian_status_code != '00':
                             if self.invoice_id.type == 'out_invoice':
-                                self.company_id.out_invoice_sent += 1
+                                self.sudo().company_id.out_invoice_sent += 1
                             elif self.invoice_id.type == 'out_refund':
-                                self.company_id.out_refund_sent += 1
+                                self.sudo().company_id.out_refund_sent += 1
                             elif self.invoice_id.type == 'in_refund':
-                                self.company_id.in_refund_sent += 1
+                                self.sudo().company_id.in_refund_sent += 1
                         
     #                     if not self.pdf_file:
                         # self.DescargarPdf2()
