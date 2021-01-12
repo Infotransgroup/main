@@ -65,7 +65,7 @@
                     <attribute name="attrs">{'invisible': [('company_country_code','=','CO')]}</attribute>
                 </xpath>
                 <xpath expr="//field[@name='company_type']" position="before">
-                    <field name="person_type" placeholder="- Person Type" attrs="{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','=','CO')]}"/>
+                    <field name="person_type" placeholder="- Person Type" attrs="{'invisible': [('company_country_code','!=','CO')], 'required': [('company_country_code','!=','CO')]}"/>
                 </xpath>
                 <!-- ... -->
                 <xpath expr="//field[@name='name']" position="attributes">
