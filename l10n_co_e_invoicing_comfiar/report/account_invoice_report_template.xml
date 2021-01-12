@@ -1,6 +1,6 @@
 <odoo>
     <template id="account_invoice_report_template_with_qr" inherit_id="account.report_invoice_document">
-        <xpath expr="//h2" position="replace">
+        <!-- <xpath expr="//h2" position="replace">
                 <div style="width:700px; height:110px;float:left;">
                 <div style="width:600px;float:left;">
                     <h2>
@@ -16,7 +16,7 @@
                 </div>
 
                 </div>
-        </xpath>
+        </xpath> -->
         <xpath expr="//p[@name='comment']" position="after">
              <t t-if="o.company_id.einvoicing_enabled == True">
                 <t t-foreach="o.dian_document_lines" t-as="dd">
