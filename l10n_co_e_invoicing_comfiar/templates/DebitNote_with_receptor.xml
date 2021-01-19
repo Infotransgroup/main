@@ -87,13 +87,15 @@
 				<cbc:IssueDate>{{IssueDate}}</cbc:IssueDate>
 				<cbc:IssueTime>{{IssueTime}}</cbc:IssueTime>
 			<!--TODO 1.0: Establecer opcional-->
-				<cbc:Note>{{Note1}}</cbc:Note> <!--Información Tributaria-->
-				<cbc:Note>{{Note2}}</cbc:Note> <!--Terminos y condicinones-->
-				<cbc:Note>{{Note3}}</cbc:Note>
-				<cbc:Note>{{Note4}}</cbc:Note> <!--Comentarios adicionales-->
-				<cbc:Note>{{Note5}}</cbc:Note> <!--Fecha de vencimiento-->
-				<cbc:Note>{{Note6}}</cbc:Note> 
-				<!-- <cbc:Note>Note7</cbc:Note>  -->
+				<cbc:Note>{{Note1}}</cbc:Note> <!-- Información Tributaria -->
+				<cbc:Note>{{Note2}}</cbc:Note> <!-- Terminos y condicinones -->
+				<cbc:Note>{{Note3}}</cbc:Note> <!-- Amount_total -->
+				<cbc:Note>{{Note4}}</cbc:Note> <!-- Comentarios adicionales -->
+				<cbc:Note>{{Note5}}</cbc:Note> <!-- Fecha de vencimiento -->
+				<cbc:Note>{{Note6}}</cbc:Note> <!-- Suma de Cantidades -->
+				<cbc:Note>{{Note7}}</cbc:Note> <!-- Rete Fte -->
+				<cbc:Note>{{Note8}}</cbc:Note> <!-- Rete IVA -->
+				<cbc:Note>{{Note9}}</cbc:Note> <!-- Rete ICA -->
 				<cbc:DocumentCurrencyCode listAgencyID="6"
 					listAgencyName="United Nations Economic Commission for Europe"
 					listID="ISO 4217 Alpha">{{DocumentCurrencyCode}}</cbc:DocumentCurrencyCode>
