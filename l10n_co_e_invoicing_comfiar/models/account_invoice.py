@@ -535,7 +535,7 @@ class AccountInvoice(models.Model):
 			taxes['04']['taxes']['0.00']['base'] = 0
 			taxes['04']['taxes']['0.00']['amount'] = 0
 
-
+		raise ValidationError(withholding_taxes)
 		return {'TaxesTotal': taxes, 'WithholdingTaxesTotal': withholding_taxes}
 
 	# def _get_accounting_supplier_party_values(self):
