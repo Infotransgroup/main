@@ -377,6 +377,7 @@ class AccountInvoice(models.Model):
 				tax_code = tax.tax_line_id.tax_group_id.tax_group_type_id.code
 				tax_name = tax.tax_line_id.tax_group_id.tax_group_type_id.name
 				tax_type = tax.tax_line_id.tax_group_id.tax_group_type_id.type
+				rate = 1
 				# tax_percent = '{:.2f}'.format(tax.tax_line_id.amount)
 				tax_percent = str(tax.tax_line_id.amount)
 
@@ -438,13 +439,6 @@ class AccountInvoice(models.Model):
 						taxes[tax_code]['taxes'][tax_percent]['base'] = 0
 						taxes[tax_code]['taxes'][tax_percent]['amount'] = 0
 
-					_logger.info('taxesprueba')
-					_logger.info(tax)
-					_logger.info(tax.tax_base_amount)
-					_logger.info(tax.tax_line_id.amount)
-					_logger.info(tax.tax_line_id.amount)
-
-					rate = 1
 					# date = self._get_currency_rate_date() or fields.Date.context_today(self)
 					date = fields.Date.context_today(self)
 					_logger.info(self.currency_id)
@@ -460,59 +454,6 @@ class AccountInvoice(models.Model):
 						taxes[tax_code]['total'] += ((tax.tax_base_amount * tax.tax_line_id.amount) / 100)
 						taxes[tax_code]['taxes'][tax_percent]['base'] += tax.tax_base_amount
 						taxes[tax_code]['taxes'][tax_percent]['amount'] += ((tax.tax_base_amount * tax.tax_line_id.amount) / 100)
-
-			# if tax_type == 'withholding_tax':
-				# 	if tax.tax_line_id.amount < 0:
-				# 		tax_percent = '{:.2f}'.format(tax.tax_line_id.amount * (-1))
-				# 	else:
-				# 		raise UserError(msg2 % tax.name)
-				#
-				# 	if tax_code not in withholding_taxes:
-				# 		withholding_taxes[tax_code] = {}
-				# 		withholding_taxes[tax_code]['total'] = 0
-				# 		withholding_taxes[tax_code]['name'] = tax_name
-				# 		withholding_taxes[tax_code]['taxes'] = {}
-				#
-				# 	if tax_percent not in withholding_taxes[tax_code]['taxes']:
-				# 		withholding_taxes[tax_code]['taxes'][tax_percent] = {}
-				# 		withholding_taxes[tax_code]['taxes'][tax_percent]['base'] = 0
-				# 		withholding_taxes[tax_code]['taxes'][tax_percent]['amount'] = 0
-				#
-				# 	withholding_taxes[tax_code]['total'] += tax.amount * (-1)
-				# 	withholding_taxes[tax_code]['taxes'][tax_percent]['base'] += tax.base
-				# 	withholding_taxes[tax_code]['taxes'][tax_percent]['amount'] += tax.amount * (-1)
-				# else:
-				# 	if tax.tax_line_id.amount > 0:
-				# 		tax_percent = '{:.2f}'.format(tax.tax_line_id.amount)
-				# 	else:
-				# 		raise UserError(msg3 % tax.name)
-				#
-				# 	if tax_code not in taxes:
-				# 		taxes[tax_code] = {}
-				# 		taxes[tax_code]['total'] = 0
-				# 		taxes[tax_code]['name'] = tax_name
-				# 		taxes[tax_code]['taxes'] = {}
-				#
-				# 	if tax_percent not in taxes[tax_code]['taxes']:
-				# 		taxes[tax_code]['taxes'][tax_percent] = {}
-				# 		taxes[tax_code]['taxes'][tax_percent]['base'] = 0
-				# 		taxes[tax_code]['taxes'][tax_percent]['amount'] = 0
-				# 	_logger.info('taxxx')
-				# 	_logger.info(tax.tax_base_amount)
-				# 	_logger.info(tax.tax_line_id)
-				# 	taxes[tax_code]['total'] += ((tax.tax_base_amount * tax.tax_line_id.amount) / 100)
-				# 	taxes[tax_code]['taxes'][tax_percent]['base'] += tax.tax_base_amount
-				# 	taxes[tax_code]['taxes'][tax_percent]['amount'] += ((tax.tax_base_amount * tax.tax_line_id.amount) / 100)
-
-
-		# if '06' not in withholding_taxes:
-		# 	withholding_taxes['06'] = {}
-		# 	withholding_taxes['06']['total'] = 0
-		# 	withholding_taxes['06']['name'] = 'ReteRenta'
-		# 	withholding_taxes['06']['taxes'] = {}
-		# 	withholding_taxes['06']['taxes']['0.00'] = {}
-		# 	withholding_taxes['06']['taxes']['0.00']['base'] = 0
-		# 	withholding_taxes['06']['taxes']['0.00']['amount'] = 0
 
 		if '01' not in taxes:
 			taxes['01'] = {}
@@ -541,7 +482,7 @@ class AccountInvoice(models.Model):
 			taxes['04']['taxes']['0.00']['base'] = 0
 			taxes['04']['taxes']['0.00']['amount'] = 0
 
-		_logger.info(withholding_taxes)
+		# _logger.info(withholding_taxes)
 		return {'TaxesTotal': taxes, 'WithholdingTaxesTotal': withholding_taxes}
 
 	# def _get_accounting_supplier_party_values(self):
