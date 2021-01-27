@@ -414,6 +414,12 @@ class AccountInvoice(models.Model):
 						withholding_taxes[tax_code]['total'] += ((tax.tax_base_amount * tax.tax_line_id.amount) / 100) * (-1)
 						withholding_taxes[tax_code]['taxes'][tax_percent]['base'] += tax.tax_base_amount
 						withholding_taxes[tax_code]['taxes'][tax_percent]['amount'] += ((tax.tax_base_amount * tax.tax_line_id.amount) / 100) * (-1)
+					
+					_logger.info('******* RETENCIONES')
+					_logger.info(rate)
+					_logger.info(tax.tax_base_amount)
+					_logger.info(tax.tax_line_id.amount)
+					_logger.info((((tax.tax_base_amount / rate) * tax.tax_line_id.amount) / 100))
 
 				elif tax_type == 'withholding_tax' and tax.tax_line_id.amount > 0:
 					# TODO 3.0 Las retenciones se recomienda no enviarlas a la DIAN
