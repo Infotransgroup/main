@@ -14,7 +14,25 @@
                         <field name="ticket_count" widget="statinfo" string="Tickets"/>
                     </button>
                 </button>
+                <xpath expr="//sheet/group" position="inside">
+                    <group>
+                        <field name="date_open"/>
+                        <field name="date_closed"/>
+                    </group>
+                </xpath>
             </field>
         </record>
+
+        <record id="crm_oppertunity_inherit_tree_view" model="ir.ui.view">
+            <field name="name">crm.lead.inherit.tree.view</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='create_date']" position="after">
+                    <field name="date_closed" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </odoo>

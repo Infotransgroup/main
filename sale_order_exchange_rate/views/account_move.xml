@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- <record id="view_move_form_inherit_account_exchange_rate" model="ir.ui.view">
+            <field name="name">account.move.form.inherit.account.exchange.rate</field>
+            <field name="model">account.move</field>
+            <field name="priority" eval="40"/>
+            <field name="inherit_id" ref="account_extended.view_move_form_inherit_account_extended"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_has_exchange_rate']" position="after">
+                    <field name="sale_order_id" invisible="True"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_has_exchange_rate']" position="attributes">
+                    <attribute name="groups">base.group_multi_currency</attribute>
+                    <attribute name="attrs">{'readonly': [('sale_order_id','not in', False)], 'invisible': [('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund'))],}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_exchange_rate']" position="attributes">
+                    <attrinute name="groups">base.group_multi_currency</attrinute>
+                    <attrinute name="attrs">{'invisible': [('invoice_has_exchange_rate','=',False)],'readonly': [('sale_order_id','not in', False)],}</attrinute>
+                </xpath>
+            </field>
+        </record> -->
+
+    <record id="view_move_form_inherit_account_extended" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.account.extended</field>
+        <field name="model">account.move</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_origin']" position="after">
+                <field name="sale_order_id" readonly="True" force_save="True" attrs="{'invisible':[('sale_order_id','=',False)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='currency_id']" position="before">
+                <field name="currency_rate_raw" groups="base.group_multi_currency" readonly="True" force_save="True"/>
+                <field name="invoice_has_exchange_rate" groups="base.group_multi_currency"
+                        attrs="{'readonly': [('sale_order_id','!=', False)], 'invisible': [('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund'))]}"/>
+                <field name="invoice_exchange_rate" groups="base.group_multi_currency"
+                        attrs="{'invisible': [('invoice_has_exchange_rate','=',False)],'readonly': [('sale_order_id','not in', False)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="amount_total_exchange_rate" groups="base.group_multi_currency"
+                    attrs="{'invisible': [('sale_order_id','!=',False)]}"/>
+            </xpath>
+            <xpath expr="//page[@id='aml_tab']/field/tree/field[@name='analytic_account_id']" position="replace">
+                <field name="analytic_account_id" optional="show" domain="['|', ('company_id', '=', parent.company_id), ('company_id', '=', False)]" groups="analytic.group_analytic_accounting" attrs="{'invisible': [('display_type', 'in', ('line_section', 'line_note'))]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_invoice_tree_inherit_account_extended" model="ir.ui.view">
+        <field name="name">account.invoice.tree.inherit.account.extended</field>
+        <field name="model">account.move</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_untaxed_signed']" position="before">
+                <field name="currency_id" invisible="0"/>
+                <field name="amount_total" string="Valor Factura"/>
+                <field name="invoice_exchange_rate" string="Tasa de cambio"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
