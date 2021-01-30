@@ -27,6 +27,7 @@ class AccountMove(models.Model):
     amount_total_exchange_rate = fields.Monetary(string='Total with Exchange Rate apply',
                                                  store=True, readonly=True, compute='_amount_all_with_exchange_rate', tracking=4)
     invoice_exchange_allow_ok = fields.Boolean('Allow Exchange Rate', compute="_compute_invoice_exchange_allow_ok")
+    aux_currency_id = fields.Many2one('res.currency', store=True)
 
 
     @api.depends('invoice_has_exchange_rate','amount_total')
@@ -87,15 +88,17 @@ class AccountMove(models.Model):
                 self.currency_rate_raw = 1 / rate if rate > 0 else 1
 
         if self.type == 'out_invoice' and self.sale_order_id and self.currency_id.id in (self.company_id.currency_id.id, self.sale_order_id.currency_id.id):
-            for line in self.invoice_line_ids:
-                if self.invoice_has_exchange_rate:
-                    convertion_factor = self.sale_order_id.so_exchange_rate if self.currency_id == self.company_id.currency_id else (1/self.sale_order_id.so_exchange_rate)
-                else:
-                    convertion_factor = self.sale_order_id.currency_rate_raw if self.currency_id == self.company_id.currency_id else (1/self.sale_order_id.currency_rate_raw)
-                line.price_unit = line.price_unit * convertion_factor
-                line._onchange_mark_recompute_taxes()
-            self._onchange_currency()   
-            
+            if self.aux_currency_id != self.currency_id:
+                self.aux_currency_id = self.currency_id
+                for line in self.invoice_line_ids:
+                    if self.invoice_has_exchange_rate:
+                        convertion_factor = self.sale_order_id.so_exchange_rate if self.currency_id == self.company_id.currency_id else (1/self.sale_order_id.so_exchange_rate)
+                    else:
+                        convertion_factor = self.sale_order_id.currency_rate_raw if self.currency_id == self.company_id.currency_id else (1/self.sale_order_id.currency_rate_raw)
+                    line.price_unit = line.price_unit * convertion_factor
+                    line._onchange_mark_recompute_taxes()
+                self._onchange_currency()   
+                
         elif self.type == 'out_invoice' and self.sale_order_id and self.currency_id.id not in (self.company_id.currency_id.id, self.sale_order_id.currency_id.id):
             raise UserError(('You cannot change the currency to a different one than the purchase order or the company.'))
             # self._compute_invoice_taxes_by_group()             

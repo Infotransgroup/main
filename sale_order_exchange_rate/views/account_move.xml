@@ -28,6 +28,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='invoice_origin']" position="after">
                 <field name="company_currency" invisible="True"/>
+                <field name="aux_currency_id" invisible="True"/>
                 <field name="sale_order_id" readonly="True" force_save="True" attrs="{'invisible':[('sale_order_id','=',False)]}"/>
             </xpath>
             <xpath expr="//field[@name='currency_id']" position="before">
