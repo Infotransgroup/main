@@ -27,6 +27,7 @@
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='invoice_origin']" position="after">
+                <field name="company_currency" invisible="True"/>
                 <field name="sale_order_id" readonly="True" force_save="True" attrs="{'invisible':[('sale_order_id','=',False)]}"/>
             </xpath>
             <xpath expr="//field[@name='currency_id']" position="before">
@@ -38,6 +39,8 @@
             </xpath>
             <xpath expr="//field[@name='amount_total']" position="after">
                 <field name="amount_total_exchange_rate" groups="base.group_multi_currency"
+                    widget="monetary"
+                    options="{'currency_field': 'company_currency'}"
                     attrs="{'invisible': [('sale_order_id','!=',False)]}"/>
             </xpath>
             <xpath expr="//page[@id='aml_tab']/field/tree/field[@name='analytic_account_id']" position="replace">

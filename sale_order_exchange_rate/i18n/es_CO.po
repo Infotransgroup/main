@@ -1,0 +1,133 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_order_exchange_rate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-30 00:23+0000\n"
+"PO-Revision-Date: 2021-01-30 00:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_account_move__invoice_exchange_allow_ok
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_sale_order__so_exchange_allow_ok
+msgid "Allow Exchange Rate"
+msgstr "Permitir cambio de moneda"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model,name:sale_order_exchange_rate.model_res_currency
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_account_move__company_currency
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_account_move__invoice_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_sale_order__so_exchange_rate
+msgid "Currency Exchange Rate Value"
+msgstr "Valor cambio de moneda"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_account_move__invoice_has_exchange_rate
+msgid "Invoice has currency exchange rate"
+msgstr "Aplica cambio de moneda"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model,name:sale_order_exchange_rate.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model,name:sale_order_exchange_rate.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_sale_order__company_currency_id
+msgid "Local Currency"
+msgstr "Moneda local"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,help:sale_order_exchange_rate.field_account_move__currency_rate_raw
+#: model:ir.model.fields,help:sale_order_exchange_rate.field_sale_order__currency_rate_raw
+msgid "Native field calc from res currency rates"
+msgstr ""
+
+#. module: sale_order_exchange_rate
+#: code:addons/sale_order_exchange_rate/models/account_move.py:0
+#, python-format
+msgid "Outstanding credits"
+msgstr "Créditos pendientes"
+
+#. module: sale_order_exchange_rate
+#: code:addons/sale_order_exchange_rate/models/account_move.py:0
+#, python-format
+msgid "Outstanding debits"
+msgstr "Débitos pendientes"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_sale_order__currency_rate_raw
+msgid "Rate"
+msgstr "Tarifa"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_account_move__sale_order_id
+msgid "Sale Order ID"
+msgstr "Orden de Venta"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_sale_order__so_has_exchange_rate
+msgid "Sale Order has currency exchange rate"
+msgstr "Aplica cambio de moneda"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model,name:sale_order_exchange_rate.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de Venta"
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_account_move__currency_rate_raw
+msgid "TRM"
+msgstr ""
+
+#. module: sale_order_exchange_rate
+#: model_terms:ir.ui.view,arch_db:sale_order_exchange_rate.view_order_form__exchange_rate
+msgid "TRM del Día"
+msgstr ""
+
+#. module: sale_order_exchange_rate
+#: model_terms:ir.ui.view,arch_db:sale_order_exchange_rate.view_order_form__exchange_rate
+msgid "TRM por Documento"
+msgstr ""
+
+#. module: sale_order_exchange_rate
+#: model_terms:ir.ui.view,arch_db:sale_order_exchange_rate.view_invoice_tree_inherit_account_extended
+msgid "Tasa de cambio"
+msgstr ""
+
+#. module: sale_order_exchange_rate
+#: model_terms:ir.ui.view,arch_db:sale_order_exchange_rate.view_order_form__exchange_rate
+msgid "Tasa del Documento"
+msgstr ""
+
+#. module: sale_order_exchange_rate
+#: model_terms:ir.ui.view,arch_db:sale_order_exchange_rate.view_order_form__exchange_rate
+msgid "Total TRM Aplicada"
+msgstr ""
+
+#. module: sale_order_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_account_move__amount_total_exchange_rate
+#: model:ir.model.fields,field_description:sale_order_exchange_rate.field_sale_order__amount_total_exchange_rate
+msgid "Total with Exchange Rate apply"
+msgstr "Total con cambio de moneda aplicado"
+
+#. module: sale_order_exchange_rate
+#: model_terms:ir.ui.view,arch_db:sale_order_exchange_rate.view_invoice_tree_inherit_account_extended
+msgid "Valor Factura"
+msgstr ""

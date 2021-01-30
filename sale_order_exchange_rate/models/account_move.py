@@ -20,7 +20,7 @@ class AccountMove(models.Model):
     _inherit = 'account.move'
 
     sale_order_id = fields.Many2one('sale.order', 'Sale Order ID')
-    
+    company_currency = fields.Many2one(string='Currency', related='company_id.currency_id', store=True, relation="res.currency")
     invoice_has_exchange_rate = fields.Boolean('Invoice has currency exchange rate')
     invoice_exchange_rate = fields.Float('Currency Exchange Rate Value', default=1)
     currency_rate_raw = fields.Float("TRM", help="Native field calc from res currency rates")
